@@ -1,6 +1,6 @@
 <% stylesheet_links << ["hydrangea_datasets", {:plugin=>:hydrangea_datasets}] %>
 <% stylesheet_links << ["../javascripts/date-picker/css/datepicker", {:plugin=>:hydra_repository, :media=>"all"}] %>
-<% stylesheet_links << ["../javascripts/fancybox/jquery.fancybox-1.3.1.css", {:plugin=>:hydra_repository, :media=>"all"}] %>
+<% stylesheet_links << ["../javascripts/fancybox/jquery.fancybox-1.3.1.css", {:plugin=>:hydra_repository}] %>
 <%# For slider controls %>
 <% stylesheet_links << ["../javascripts/select_to_ui_slider/css/ui.slider.extras.css", {:plugin=>:hydra_repository, :media=>"all"}] %>
 <% stylesheet_links << ["slider", {:plugin=>:hydra_repository}] %>
@@ -22,7 +22,7 @@
      <%= render :partial => 'hydrangea_datasets/edit_rights' %>
 
       <h2 class="section-title"><a href="#">Upload Files</a></h2>
-      <div id="uploads" data-pid=<%= params[:id] %>></div>
+      <div id="uploads" id="<%= format_pid(params[:id]) %>"></div>
 
       <h2 class="section-title"><a href="#">Set permissions</a></h2>
       <div id="permissions">
