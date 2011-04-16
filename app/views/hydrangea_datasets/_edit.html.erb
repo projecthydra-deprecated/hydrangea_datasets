@@ -22,7 +22,9 @@
      <%= render :partial => 'hydrangea_datasets/edit_rights' %>
 
       <h2 class="section-title"><a href="#">Upload Files</a></h2>
-      <div id="uploads"></div>
+      <div id="uploads">  			
+				<%= render :partial => "file_assets/index", :locals => { :file_assets => @file_assets} %>
+      </div>
 
       <h2 class="section-title"><a href="#">Set permissions</a></h2>
       <div id="permissions">
