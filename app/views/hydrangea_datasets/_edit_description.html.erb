@@ -1,6 +1,6 @@
 <form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_dataset")%>" method="post" accept-charset="utf-8">
   <input name="_method" type="hidden" value="put" />
-  <input id="content_type" type="hidden" name="content_type" value="hydrangea_dataset" />
+  <input class="content_type" type="hidden" name="content_type" value="hydrangea_dataset" />
   <fieldset>
     <legend>Title (required)</legend>
     <dl>
@@ -30,5 +30,5 @@
     <legend>Additional Info (optional)</legend>
     <%= render :partial=>"hydrangea_datasets/edit_additional_info" %>
   </fieldset>
-  <%= button_to 'Save Description', {},{:id => "submitDescription"} %>
+  <%= submit_tag 'Save Description', {:id => "submitDescription"} %>
 </form>
