@@ -1,5 +1,6 @@
-<form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_dataset")%>" method="post" data-resourceType="hydrangea_dataset" accept-charset="utf-8">
-  <input id="content_type" type="hidden" name="content_type" value="hydrangea_dataset" />
+<form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_dataset")%>" method="post" accept-charset="utf-8">
+  <input name="_method" type="hidden" value="put" />
+  <input class="content_type" type="hidden" name="content_type" value="hydrangea_dataset" />
   <fieldset>
     <legend>Title (required)</legend>
     <dl>
@@ -19,18 +20,7 @@
       <%= render :partial=>"contributors/edit_conference", :collection=>@document_fedora.datastreams_in_memory["descMetadata"].find_by_terms(:conference) %>
     </ol>  
     <%# Button for adding person/conference/organization %>
-    <% if params[:action] == "edit" %>
-      <% format = document_partial_name(@document) %>
-      <div id="add-contributor-box">
-        <input id="re-run-add-contributor-action" type="button" value="Add a researcher" />
-        <button id="select-contributor-type" type="button">Select type of contributor to add</button>
-        <ul id="add-contributor-menu">
-          <li id="add_person">Add a person</li>
-          <li id="add_organization">Add an organization</li>
-          <li id="add_conference">Add a conference</li>
-        </ul>
-      </div>
-    <% end %>
+    <%= render :partial => "contributors/add_contributor_split_button" %>
   </fieldset>
   <fieldset>
     <legend>Coverage and Methodology (required)</legend>
@@ -40,4 +30,5 @@
     <legend>Additional Info (optional)</legend>
     <%= render :partial=>"hydrangea_datasets/edit_additional_info" %>
   </fieldset>
+  <%= submit_tag 'Save Description', {:id => "submitDescription"} %>
 </form>

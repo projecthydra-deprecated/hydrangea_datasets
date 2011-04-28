@@ -1,8 +1,9 @@
-<form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_dataset")%>" method="post" data-resourceType="hydrangea_dataset" accept-charset="utf-8">
-  <input id="content_type" type="hidden" name="content_type" value="hydrangea_dataset" />
+<form id="document_metadata" action="<%= url_for(:action=>"update", :controller=>"assets", :content_type=>"hydrangea_dataset")%>" method="post" accept-charset="utf-8">
+  <input type="hidden" name="_method" value="put"/>
+  <input class="content_type" type="hidden" name="content_type" value="hydrangea_dataset" />
 <dl>
  <fieldset>
-  <legend>Ownership & Right to Deposit</legend>
+  <legend>Ownership &amp; Right to Deposit</legend>
   <dt>
     <%= fedora_field_label("hydraDataset", [:right_to_deposit], "Right to deposit") %>
   </dt>
@@ -49,4 +50,5 @@
 </fieldset>
 
 </dl>
+  <%= submit_tag 'Save Rights &amp; License Info', {:id => "submitRightsMetadata"} %>
 </form>
